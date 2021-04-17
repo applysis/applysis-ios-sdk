@@ -16,4 +16,23 @@ public struct Feedback: Codable {
     public let author: String?
     public let region: String?
     public let version: String?
+    
+    
+    public init(
+        text: String,
+        title: String?,
+        date: Date?,
+        rating: Int?,
+        author: String?,
+        region: String?,
+        version: String?
+    ) {
+        self.text = text
+        self.title = title
+        self.date = date
+        self.rating = rating
+        self.author = author
+        self.region = region
+        self.version = version
+    }
 }

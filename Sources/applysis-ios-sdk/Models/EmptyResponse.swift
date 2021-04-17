@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct EmptyResponse: Codable { }
+public struct EmptyResponse: Codable { }
 
-enum ApplysisError: Error {
+public enum ApplysisError: Error {
     /// Indicates one of the errors: API Key not correct or being invalid
     case forbidden
     case badRequest

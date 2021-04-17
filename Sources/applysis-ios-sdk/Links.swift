@@ -9,5 +9,5 @@
 import Foundation
 
 struct Links {
-    static let baseUrl = "https://t6vpfb9ud8.execute-api.eu-central-1.amazonaws.com/Prod"
+    static let baseUrl = "https://api-public.applysis.io"
 }
