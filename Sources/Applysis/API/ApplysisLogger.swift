@@ -1,6 +1,6 @@
 
 //
-//  Logger.swift
+//  ApplysisLogger.swift
 //
 //
 //  Created by Shalva Avanashvili on 17.04.2021.
@@ -14,23 +14,17 @@ enum NetworkLogLevel: Int {
     case none
 }
 
-private extension Optional where Wrapped == String {
-    var wrappedValue: String {
-        self ?? ""
-    }
-}
-
-public class Logger {
+public class ApplysisLogger {
     static func log(level: NetworkLogLevel, request: URLRequest) {
         guard level != .none else { return }
         
-        let method = request.httpMethod.wrappedValue ?? ""
+        let method = request.httpMethod ?? ""
         let url = request.url?.absoluteString
         let headers = request.allHTTPHeaderFields ?? [:]
 
         var params: [Any] = ["📤 Request"]
         params.append("HTTPMethod   -> \(method)")
-        params.append("URL          -> \(url.wrappedValue)")
+        params.append("URL          -> \(url ?? "")")
         params.append(
             "Headers      -> [\(headers.map { "\($0.key): \($0.value)" }.joined(separator: ",\n                "))]"
         )
@@ -50,7 +44,7 @@ public class Logger {
         let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any]
         
         var params: [Any] = ["📤 Response"]
-        params.append("URL          -> \(url.wrappedValue)")
+        params.append("URL          -> \(url ?? "")")
         params.append("Response     -> \(json ?? [:])")
 
         trace(level: level, params: params)

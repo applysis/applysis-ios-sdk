@@ -59,7 +59,7 @@ public class Applysis {
             request = request.useLoggingLevel(.info)
         }
         
-        return request.build()
+        return request.buildAsFuture()
     }
     
     public func submitFeedbacks(_ feedbacks: [Feedback]) -> Future<EmptyResponse, ApplysisError>  {
@@ -80,7 +80,7 @@ public class Applysis {
             request = request.useLoggingLevel(.info)
         }
         
-        return request.build()
+        return request.buildAsFuture()
     }
 }
 
