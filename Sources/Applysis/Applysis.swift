@@ -1,5 +1,5 @@
 //
-//  ApplysisSDK.swift
+//  Applysis.swift
 //  
 //
 //  Created by Shalva Avanashvili on 15.04.2021.
@@ -9,14 +9,15 @@
 import Foundation
 import Combine
 
-public class ApplysisSDK {
+public class Applysis {
     private static var apiKey: String? = nil
+    
     private let key: String
     private let feedbackBatchLimit: Int = 50
     private var debugModeEnabled = false
     
-    private static var sdk: ApplysisSDK?
-    public static var shared: ApplysisSDK {
+    private static var sdk: Applysis?
+    public static var shared: Applysis {
         guard let sdk = sdk else {
             fatalError("Applysis SDK must be initialised with apiKey, please use `initialise(with:)` at first.")
         }
@@ -25,7 +26,7 @@ public class ApplysisSDK {
     }
     
     public static func initalise(with apiKey: String) {
-        sdk = ApplysisSDK(apiKey: apiKey)
+        sdk = Applysis(apiKey: apiKey)
     }
     
     private init(apiKey: String) {
