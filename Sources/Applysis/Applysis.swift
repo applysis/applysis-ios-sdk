@@ -42,12 +42,6 @@ public class Applysis {
     }
     
     public func submitFeedback(_ feedback: Feedback) -> Future<EmptyResponse, ApplysisError> {
-        guard feedback.text.isEmpty == false else {
-            return Future<EmptyResponse, ApplysisError> { promise in
-                promise(.failure(.nonValid))
-            }
-        }
-        
         var request = RequestBuilder<EmptyResponse>(baseUrl: Links.baseUrl)
             .useHttpMethod(.POST)
             .useDateEncodingStrategy(.iso3339Formatter)

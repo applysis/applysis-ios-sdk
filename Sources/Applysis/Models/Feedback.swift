@@ -9,14 +9,14 @@
 import Foundation
 
 public struct Feedback: Codable {
-    public let text: String
+    public let text: String?
     public let title: String?
     public let date: Date?
     public let rating: Int?
     public let author: String?
     public let region: String?
     public let version: String?
-    
+    public let tags: [String]?
     
     public init(
         text: String,
@@ -25,7 +25,8 @@ public struct Feedback: Codable {
         rating: Int?,
         author: String?,
         region: String?,
-        version: String?
+        version: String?,
+        tags: [String]?
     ) {
         self.text = text
         self.title = title
@@ -34,5 +35,6 @@ public struct Feedback: Codable {
         self.author = author
         self.region = region
         self.version = version
+        self.tags = tags
     }
 }
